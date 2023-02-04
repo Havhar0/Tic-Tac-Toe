@@ -11,7 +11,75 @@ body{
     margin:0
 }
 
+.player-choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.96;
+    z-index: 1;
+    background-color: rgb(65, 65, 65);
+}
+
+.player-choice p{
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    font-family: sans-serif;
+    font-weight: 100;
+    z-index: 2;
+}
+
+.xOrCircle {
+    display: flex;
+}
+
+.player-choiceX{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: url(/images/x.svg);
+    
+    
+}
+.player-choiceX:hover{
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.player-choiceO{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: url(/images/o.svg);
+    
+}
+.player-choiceO:hover{
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+/* ------ player choice X -----*/
+
+.player-choicex-container{
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
 .board {
+    position: relative;
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -59,6 +127,9 @@ body{
     cursor: not-allowed;
 }
 
+
+/* ------------------------------------------------------------------- X & O styling -----------------*/
+
 .cell.x::before,
 .cell.x::after,
 .cell.circle::before {
@@ -72,6 +143,23 @@ body{
     background-color: rgb(88, 88, 88);
 }
 
+/*--- transition animation only X ---*/
+
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle)::before,
+.board.x .cell:not(.x):not(.circle)::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .08);
+    height: var(--mark-size);
+    /* TRANSITION ANIMATION
+    opacity: 0;
+    transition: 0.3s;
+     */
+}
+
 .cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before,
@@ -80,6 +168,10 @@ body{
     position: absolute;
     width: calc(var(--mark-size) * .08);
     height: var(--mark-size);
+    /* TRANSITION ANIMATION
+    opacity: 1;
+    transition: 0.3s;
+     */
 }
 
 .cell.x::before,
@@ -92,6 +184,7 @@ body{
     transform: rotate(-45deg);
 }
 
+/* --------- CSS CIRCLE ----*/
 
 .cell.circle::before,
 .cell.circle::after,
@@ -106,6 +199,7 @@ body{
 .board.circle .cell:not(.x):not(.circle):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
+    
 }
 
 .cell.circle::after,
@@ -113,6 +207,9 @@ body{
     width: calc(var(--mark-size) * 0.85);
     height: calc(var(--mark-size) * 0.85);
     background-color: rgb(65, 65, 65);
+      /* TRANSITION ANIMATION */
+      opacity: 1;
+      transition: 0.3s;
 }
 
 

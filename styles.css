@@ -69,15 +69,6 @@ body{
     position: relative;
 }
 
-
-
-
-
-
-
-
-
-
 .board {
     position: relative;
     width: 100vw;
@@ -144,7 +135,6 @@ body{
 }
 
 /*--- transition animation only X ---*/
-
 
 .cell.x::before,
 .cell.x::after,
